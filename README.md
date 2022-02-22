@@ -25,7 +25,7 @@ Data is stored in a *noSQL*-esque DB called tinyDB, a document-oriented DB for p
 
 To get started...
 1. clone the repo into your local directory
-2. install all dependencies from `requirements.txt`
+2. install all dependencies from `requirements.txt`, with: `pip install -r requirements.txt` (depending on your OS, you may need to use `pip3` instead)
 3. execute `flask run` via command line
 
 **OR**
