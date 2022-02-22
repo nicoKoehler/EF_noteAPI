@@ -44,10 +44,37 @@ No authentication is required for this API
 
 
 
-`/api/v1/note/create`
+`/api/v1/note/create/`   
 **Description**: Creates a new note   
-**Allowed Methods**: GET   
+**Allowed Methods**: POST   
 **Payload required**: content, title (optional, defaults to "New Note")      
-**Returns**: JSON object with `msg` and description of API   
+**Returns**: JSON object with `msg` and *note id*, or `msg` with error
 
+
+`/api/v1/note/get/`   
+**Description**: Retrievs a single note for specific id
+**Allowed Methods**: GET   
+**Payload required**: id  
+**Returns**: JSON object with note object, or `msg` with error
+
+
+`/api/v1/note/list/`   
+**Description**: lists all notes availale in DB
+**Allowed Methods**: GET   
+**Payload required**: None  
+**Returns**: JSON object with all notes in DB, or `msg` with error
+
+
+`/api/v1/note/edit/`   
+**Description**: Edits a single note with new content
+**Allowed Methods**: POST   
+**Payload required**: id, content, title(optional)  
+**Returns**: JSON object with `msg` of success or error
+
+
+`/api/v1/note/delete/`   
+**Description**: Deletes a note from the DB
+**Allowed Methods**: DELETE   
+**Payload required**: id  
+**Returns**: JSON object with `msg` of success or error
 
