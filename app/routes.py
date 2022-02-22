@@ -45,7 +45,7 @@ def create():
     data = json.loads(request.data)
     title = data.get("title", None)
     content = data.get("content", None)
-    if not content: return jsonify({"msg": "no content prodided"})
+    if not content: return jsonify({"msg": "no content provided"})
     if not title: title = "New Note"
     
     note = Note()

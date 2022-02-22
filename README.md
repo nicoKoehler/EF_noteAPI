@@ -15,10 +15,10 @@ Data is stored in a *noSQL*-esque DB called tinyDB, a document-oriented DB for p
 
 - Dir: App => contains all application relevant files
 - Dir: DB => contains the `db.json` file that serves as the database for tinyDB
-- File: main.py => envokes the application
+- File: main.py => invokes the application
 - File: config.py => contains config details on paths, etc.
 - File: API_query.ipynb => Jupyter notebook providing code snippits to perform core interactions with API
-- .flaskenv => constains runtime parameters to start the app
+- .flaskenv => contains runtime parameters to start the app
 
 
 ## SETUP
@@ -52,14 +52,14 @@ No authentication is required for this API
 
 
 `/api/v1/note/get/`   
-**Description**: Retrievs a single note for specific id
+**Description**: Retrieves a single note for specific id
 **Allowed Methods**: GET   
 **Payload required**: id  
 **Returns**: JSON object with note object, or `msg` with error
 
 
 `/api/v1/note/list/`   
-**Description**: lists all notes availale in DB
+**Description**: lists all notes available in DB
 **Allowed Methods**: GET   
 **Payload required**: None  
 **Returns**: JSON object with all notes in DB, or `msg` with error
