@@ -17,7 +17,7 @@ Data is stored in a *noSQL*-esque DB called tinyDB, a document-oriented DB for p
 - Dir: DB => contains the `db.json` file that serves as the database for tinyDB
 - File: main.py => invokes the application
 - File: config.py => contains config details on paths, etc.
-- File: API_query.ipynb => Jupyter notebook providing code snippits to perform core interactions with API
+- File: API_query.ipynb => Jupyter notebook providing code snippets to perform core interactions with API
 - .flaskenv => contains runtime parameters to start the app
 
 
