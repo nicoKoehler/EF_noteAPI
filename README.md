@@ -39,6 +39,6 @@ No authentication is required for this API
 #### Endpoints
 
 `/api/v1`or `/`
-**Allowed Methods**: GET
+**Allowed Methods**: GET   
 **Returns**: JSON object with `msg` and description of API
 
