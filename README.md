@@ -44,4 +44,10 @@ No authentication is required for this API
 
 
 
+`/api/v1/note/create`
+**Description**: Creates a new note   
+**Allowed Methods**: GET   
+**Payload required**: content, title (optional, defaults to "New Note")      
+**Returns**: JSON object with `msg` and description of API   
+
 

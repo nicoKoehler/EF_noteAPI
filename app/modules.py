@@ -36,7 +36,7 @@ class Note:
 
     def create_id(self):
         '''
-            Creates custom UUID. no longer needed. 
+            Creates custom UUID.
             :returns: note_id
         '''
         id_exists = True
@@ -47,6 +47,10 @@ class Note:
         return note_id
 
     def checks(self):
+        '''
+            Performs basic checks if an ID exist and if it is not empty
+            :returns: True if all checks are passed. FALSE if ID checks fail
+        '''
         if not self.id or not db.search(query.id == self.id):
             return False
 
@@ -54,6 +58,15 @@ class Note:
 
 
     def create(self, content, title="New Note"):
+        '''
+            creates a new note in DB
+            :params: 
+                - content: content provided and checked before function is envoked
+                - title: default, if none provided
+            :returns:
+                - new note ID
+        '''
+
         # content will be checked beforehand
         self.content = content
         self.title = title
@@ -66,7 +79,12 @@ class Note:
             })
         return self.id
 
+
     def get_note(self):
+        '''
+            Retrieves a SINGLE note from DB
+            returns: response of item, or error message
+        '''
 
         result = db.get(query.id == self.id)
 
@@ -77,10 +95,14 @@ class Note:
 
         return jsonify(response)
 
+
     def delete_note(self):
-        if not self.id: 
-            response = {"msg": "no id to delete provided"}
-            return jsonify(response)
+        '''
+            Delete Note from DB
+            :returns: success message or error message
+        '''
+
+        if not self.checks(): return jsonify({"msg": "no ID provided or note does not exist"})
 
         if not db.search(query.id == self.id): return jsonify({"msg": "note with this id does not exist"})
 
@@ -89,10 +111,16 @@ class Note:
 
 
     def edit_note(self, title, content):
+        '''
+            EDIT note in DB
+            :params:
+                - title: new updated title
+                - content: updated content
+        '''
+
         if not self.checks(): return jsonify({"msg": "no ID provided or note does not exist"})
-
+        
         db.update({"content": content}, where("id") == self.id)
-
         if title: db.update({"title": title}, where("id") == self.id)
 
         return jsonify({"msg": "Edit succesful"})
