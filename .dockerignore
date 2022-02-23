@@ -1,0 +1,4 @@
+venv_efAPI
+__pycache__
+*.ipynb
+.gitignore

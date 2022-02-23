@@ -11,7 +11,6 @@ import uuid
 
 db = TinyDB(TINYDBPATH)
 db.default_table_name = "notes"
-
 query = Query()
 
 

@@ -15,7 +15,7 @@ Data is stored in a *noSQL*-esque DB called tinyDB, a document-oriented DB for p
 
 - Dir: App => contains all application relevant files
 - Dir: DB => contains the `db.json` file that serves as the database for tinyDB
-- File: main.py => invokes the application
+- File: main.py => starts the application
 - File: config.py => contains config details on paths, etc.
 - File: API_query.ipynb => Jupyter notebook providing code snippets to perform core interactions with API
 - .flaskenv => contains runtime parameters to start the app
@@ -30,7 +30,14 @@ To get started...
 
 **OR**
 
-Deploy run and deploy the docker image
+Deploy run and deploy the docker image. For that:
+1. Build the docker image via `docker build -t {yourNameForIt} .`
+2. Run docker image via `docker run -d -p 5000:5000 {yourNameForIt}`
+3. The api should be available locally at `0.0.0.0:5000/` and will redirect you the api starting point
+
+**NOTES**
+- if you are on a linux machine, you may need to run the commands with `sudo`
+- you can check your container running properly with `docker ps -a` and use the containerID with `docker logs {containerID}`
 
 
 ## How to use the API
@@ -39,42 +46,42 @@ No authentication is required for this API
 #### Endpoints
 
 `/api/v1`or `/`   
-**Allowed Methods**: GET   
-**Returns**: JSON object with `msg` and description of API   
+*Allowed Methods*: GET   
+*Returns*: JSON object with `msg` and description of API   
 
 
 
 `/api/v1/note/create/`   
-**Description**: Creates a new note   
-**Allowed Methods**: POST   
-**Payload required**: content, title (optional, defaults to "New Note")      
-**Returns**: JSON object with `msg` and *note id*, or `msg` with error
+*Description*: Creates a new note   
+*Allowed Methods*: POST   
+*Payload required*: content, title (optional, defaults to "New Note")      
+*Returns*: JSON object with `msg` and *note id*, or `msg` with error
 
 
 `/api/v1/note/get/`   
-**Description**: Retrieves a single note for specific id
-**Allowed Methods**: GET   
-**Payload required**: id  
-**Returns**: JSON object with note object, or `msg` with error
+*Description*: Retrieves a single note for specific id
+*Allowed Methods*: GET   
+*Payload required*: id  
+*Returns*: JSON object with note object, or `msg` with error
 
 
 `/api/v1/note/list/`   
-**Description**: lists all notes available in DB
-**Allowed Methods**: GET   
-**Payload required**: None  
-**Returns**: JSON object with all notes in DB, or `msg` with error
+*Description*: lists all notes available in DB
+*Allowed Methods*: GET   
+*Payload required*: None  
+*Returns*: JSON object with all notes in DB, or `msg` with error
 
 
 `/api/v1/note/edit/`   
-**Description**: Edits a single note with new content
-**Allowed Methods**: POST   
-**Payload required**: id, content, title(optional)  
-**Returns**: JSON object with `msg` of success or error
+*Description*: Edits a single note with new content
+*Allowed Methods*: POST   
+*Payload required*: id, content, title(optional)  
+*Returns*: JSON object with `msg` of success or error
 
 
 `/api/v1/note/delete/`   
-**Description**: Deletes a note from the DB
-**Allowed Methods**: DELETE   
-**Payload required**: id  
-**Returns**: JSON object with `msg` of success or error
+*Description*: Deletes a note from the DB
+*Allowed Methods*: DELETE   
+*Payload required*: id  
+*Returns*: JSON object with `msg` of success or error
 
